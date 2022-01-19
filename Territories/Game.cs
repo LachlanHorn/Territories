@@ -16,7 +16,7 @@ namespace Territories
         {
             Board board = new Board();
 
-            
+            run();
 
             board.paint();
 
