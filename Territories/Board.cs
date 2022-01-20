@@ -8,7 +8,7 @@ namespace Territories
 {
     class Board
     {
-        static Tile[,] t = new Tile[25, 25];
+        static Tile[,] t = new Tile[5, 5];
 
         public Board()
         {
@@ -20,7 +20,7 @@ namespace Territories
 
             bool placed = false;
 
-            if (Neighbourcheck(coords, character) && t[coords[0], coords[1]].Team == ' ')
+            if (Neighbourcheck(coords, character) && t[coords[0], coords[1]].Team == 'X')
             {
                 t[coords[0], coords[1]] = new Tile(character);
                 placed = true;
@@ -55,10 +55,15 @@ namespace Territories
             {
                 for (int y = -1; y < 2; y++)
                 {
-                    if (t[coords[0] + x, coords[1] + y].Team == character)
+
+                    if(coords[0] + x > -1 && coords[1] + y > -1 && coords[0] + x < board.GetLength(0) && coords[1] + y < board.GetLength(1))
                     {
-                        neighboured = true;
+                        if (t[coords[0] + x, coords[1] + y].Team == character)
+                        {
+                            neighboured = true;
+                        }
                     }
+                    
                 }
             }
 
@@ -73,6 +78,8 @@ namespace Territories
 
         private void fill()
         {
+            
+
             for (int x = 0; x < t.GetLength(0); x++)
             {
                 for (int y = 0; y < t.GetLength(1); y++)
@@ -80,6 +87,9 @@ namespace Territories
                     t[x, y] = new Tile('X');
                 }
             }
+
+            t[0, 0] = new Tile('A');
+            t[board.GetLength(0) - 1, board.GetLength(1) - 1] = new Tile('B');
         }
     }
 }

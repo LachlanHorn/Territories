@@ -19,18 +19,26 @@ namespace Territories
         {
             int[] coords = new int[2];
 
+            bool placed = false;
+
             do
             {
-
+                
                 Console.WriteLine("Please enter X coordinate.");
                 coords[0] = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Please enter Y coordinate.");
                 coords[1] = Convert.ToInt32(Console.ReadLine());
 
-            } while (!board.place(coords, team));
+                placed = board.place(coords, team);
 
+            } while (!placed);
 
+        }
 
+        public char Team
+        {
+            get { return team; }
+            set { team = value; }
         }
     }
 }
