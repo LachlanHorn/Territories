@@ -8,6 +8,7 @@ namespace Territories
 {
     class Player
     {
+        public int[] lastplace;
         char team;
 
         public Player(char team)
@@ -17,6 +18,7 @@ namespace Territories
 
         public void place(Board board)
         {
+
             int[] coords = new int[2];
 
             bool placed = false;
@@ -24,12 +26,14 @@ namespace Territories
             do
             {
                 
-                Console.WriteLine("Please enter X coordinate.");
-                coords[0] = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Please enter Y coordinate.");
+                coords[0] = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Please enter X coordinate.");
                 coords[1] = Convert.ToInt32(Console.ReadLine());
 
                 placed = board.place(coords, team);
+
+                lastplace = coords;
 
             } while (!placed);
 

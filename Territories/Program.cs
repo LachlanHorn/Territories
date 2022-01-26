@@ -12,12 +12,15 @@ namespace Territories
         {
             Console.WriteLine("Welcome to territories");
 
-
+            Board b = new Board();
             Console.WriteLine("Conquer the board to win!");
 
             Game game = new Game();
 
             Console.ReadLine();
+
+            AiPlayer Ai = new AiPlayer('a', 2);
+            Ai.place(b);
 
         }
     }

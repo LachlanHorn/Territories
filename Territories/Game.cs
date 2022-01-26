@@ -11,7 +11,7 @@ namespace Territories
 
         Player p1 = new Player('A');
 
-        Player p2 = new Player('B');
+        AiPlayer p2 = new AiPlayer('B',0);
 
         Board board = new Board();
         public Game()
@@ -30,13 +30,15 @@ namespace Territories
             {
                 p1.place(board);
                 board.paint();
-                
-                p2.place(board);
+
+                Console.WriteLine("Robot thinking");
+                p2.randopath(board);
                 board.paint();
             }
 
         }
 
+        //checks if win occured
         private bool Wincheck(Player p)
         {
             bool won = false;
