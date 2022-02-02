@@ -25,17 +25,24 @@ namespace Territories
 
             do
             {
-                
-                Console.WriteLine("Please enter Y coordinate.");
-                coords[0] = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Please enter X coordinate.");
-                coords[1] = Convert.ToInt32(Console.ReadLine());
+
+                //Console.WriteLine("Please enter Y coordinate.");
+                //coords[0] = Convert.ToInt32(Console.ReadLine());
+                //Console.WriteLine("Please enter X coordinate.");
+                //coords[1] = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter coordinates in format x,y");
+
+                string[] temp = Console.ReadLine().Split(',');
+
+                coords[1] = Convert.ToInt32(temp[0]);
+                coords[0] = Convert.ToInt32(temp[1]);
 
                 placed = board.place(coords, team);
 
                 lastplace = coords;
 
-            } while (!placed);
+            } while (!placed && coords[0] != -1);
 
         }
 

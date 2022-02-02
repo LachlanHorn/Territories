@@ -8,7 +8,7 @@ namespace Territories
 {
     class Board
     {
-        static Tile[,] t = new Tile[5, 5];
+        static Tile[,] t = new Tile[25, 25];
 
         public Board()
         {
@@ -37,7 +37,20 @@ namespace Territories
                 
                 for (int y = 0; y < t.GetLength(1); y++)
                 {
+
+                    if (t[x, y].Team == 'A')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+
+                    if (t[x, y].Team == 'B')
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
                     Console.Write("  " + t[x, y].Team);
+
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+
                 }
                 Console.WriteLine(" : " + x);
             }

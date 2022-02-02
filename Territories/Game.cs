@@ -18,9 +18,6 @@ namespace Territories
         {
             board.paint();
             run();
-
-            
-
         }
 
         private void run()
@@ -35,6 +32,8 @@ namespace Territories
                 p2.randopath(board);
                 board.paint();
             }
+
+            Console.WriteLine("VICTORY!!!!!!");
 
         }
 
@@ -60,7 +59,7 @@ namespace Territories
                 
             }
 
-            if(charcount > 312)
+            if(charcount > (board.board.GetLength(1) * board.board.GetLength(0)) / 2)
             {
                 won = true;
             }

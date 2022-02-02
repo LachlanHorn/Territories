@@ -24,14 +24,18 @@ namespace Territories
         {
             Random rand = new Random();
             bool placed = false;
-            
+
+            int placecount = 0;
+
             do
             {
-                int[] rands = new int[] { rand.Next(0, 24), rand.Next(0, 24) };
+                int[] rands = new int[] { rand.Next(0, board.board.GetLength(0)), rand.Next(0, board.board.GetLength(1)) };
 
                 placed = board.place(rands, Team);
 
-            } while (!placed);
+                placecount++;
+
+            } while (!placed && placecount < board.board.GetLength(0) * board.board.GetLength(1));
             
 
 
